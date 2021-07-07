@@ -1,0 +1,19 @@
+Package: usda.announcements
+Title: Retrive information of USDA announcements
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Siyu",
+           family = "Bian",
+           role = c("aut", "cre"),
+           email = "bsyben@gmail.com",
+           comment = c(ORCID = "0000-0002-3033-3477"))
+Description: This package downloads USDA announcement informaiton, such as release dates.
+License: use_proprietary_licese()
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Dependes:
+  R (>= 4.0.2),
+  purrr,
+  httr
