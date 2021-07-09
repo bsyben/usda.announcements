@@ -8,7 +8,7 @@
 #' @param identifier a string represents the abbreviation of usda announcements, such as wasde
 #' @param latest a boolean indicator. If latest is set to be TRUE, then only the latest release will be obtained. Default is latest=FALSE
 #'
-#' @return A vector contains release dates
+#' @return A dataframe contains release dates and announcement identifier
 #' @export
 
 release_dates <- function(key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQ3NzJ9.J_iSIoycXn2FhgZzR53rYuyfxNoSE1F6RfhOsaagrAs",
@@ -30,6 +30,7 @@ release_dates <- function(key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQ3
   Results <- httr::RETRY("GET",url=url,httr::add_headers(accept="application/json",Authorization=paste("Bearer",key,sep=" ")),times=5)
   Results <- httr::content(Results,"parsed")
   announcement_dates <- unlist(purrr::map(Results,purrr::pluck,"release_datetime"))
+  announcement_dates <- cbind.data.frame(announcement_dates,identifier)
 
   return(announcement_dates)
 }
