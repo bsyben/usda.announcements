@@ -15,7 +15,7 @@ Suppose you want to find announcement release dates for _Crop Production_ betwee
 where _key_ is your own api key. Then, the output would be as following:
 
 announcement_dates|announcement_name
------------------------------------
+-----------------|------------------
 2018-05-10|Crop Production
 2018-04-10|Crop Production
 2018-03-08|Crop Production
