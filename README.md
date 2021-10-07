@@ -11,7 +11,10 @@ devtools::install_github("bsyben/usda.announcements)
 Obviously, _devtools_ must be installed at first. Also, other packages which can install R packages from git may also work. However, I have not tested them yet.
 
 ## Register api key
-This is a simple package for retrieving USDA announcement days with the [USDA EMSI api](https://usda.library.cornell.edu/apidoc/index.html). You can obtain your own free api key from [here](https://www.ers.usda.gov/developer/data-apis/). 
+This is a simple package for retrieving USDA announcement days with the [USDA EMSI api](https://usda.library.cornell.edu/apidoc/index.html). You can obtain your own free api key by the following steps:
+
+1. Register an account at the [website](https://usda.library.cornell.edu/?locale=en)
+2. Use the _key_generator_ function in this package to generate your token for the api
 
 ## Find USDA Announcement Publication ID
 To use this package, you need to decide the range of dates you want to use and the announcement publication id of your announcements. To find the announcement publication id, go to USDA ESMI [website](https://usda.library.cornell.edu/?locale=en) and search for the announcement. For example, suppose we are looking for Crop Progress. Entering "Crop Progress" in the website search area and choose the first suggested report, you will enter the page with the URL "https://usda.library.cornell.edu/concern/publications/8336h188j?locale=en". Here, the publication id for crop progress is "8336h188j", which is the string between "publications/" and "?". You can use this method to find publication id for other reports.
