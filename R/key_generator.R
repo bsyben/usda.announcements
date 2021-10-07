@@ -29,7 +29,7 @@ key_generator <- function(user.email,user.password){
     password=user.password)
   )
 
-  request <-  POST(url="https://usda.library.cornell.edu/user_token",
+  request <-  httr::POST(url="https://usda.library.cornell.edu/user_token",
        body=jsonlite::toJSON(auth, pretty = T, auto_unbox = T), httr::content_type('application/json'))
   key <- httr::content(request,"parsed")$jwt
 
