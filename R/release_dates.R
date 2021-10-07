@@ -11,7 +11,7 @@
 #' @return A dataframe contains release dates and announcement name
 #'
 #' @examples
-#' # Retreive WASDE release dates between 01/02/2009 and 05/22/2018. Replace key with your own api key from https://www.ers.usda.gov/developer/data-apis/
+#' # Retreive WASDE release dates between 01/02/2009 and 05/22/2018. Replace key with your own api key from key_generator function in this package
 #'
 #' WASDE_dates <- release_dates(start_date = "2009-01-02",end_date = "2018-05-22",pubid = "3t945q76s",key = key)
 #'
