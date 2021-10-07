@@ -1,5 +1,13 @@
 # usda.announcements
 
+## Installation
+
+This package is only published on github for now. Therefore, to install it, you can use the following code:
+
+`<devtools::install_github("bsyben/usda.announcements)>`
+
+Obviously, _devtools_ must be installed at first. Also, other packages which can install R packages from git may also work. However, I have not tested them yet.
+
 ## Register api key
 This is a simple package for retrieving USDA announcement days with the [USDA EMSI api](https://usda.library.cornell.edu/apidoc/index.html). You can obtain your own free api key from [here](https://www.ers.usda.gov/developer/data-apis/). 
 
@@ -21,4 +29,6 @@ announcement_dates|announcement_name
 2018-03-08|Crop Production
 2018-02-08|Crop Production
 
+## Feature requests
 
+I don't have too much time to work on this small package so far. If you are familir with git's fork/pull request workflow, please feel free to submit your pull requests. I will review and approve them as soon as possible. If you are not familiar with the workflow, please leave comments in the discussion session. I will try to answer them and make necessary adjustments.
