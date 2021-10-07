@@ -2,31 +2,30 @@
 % Please edit documentation in R/release_dates.R
 \name{release_dates}
 \alias{release_dates}
-\title{Download release dates of specifict USDA announcements with report identifiers}
+\title{Download release dates of specifict USDA announcements with report pubids}
 \usage{
-release_dates(
- 
-    key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQ3NzJ9.J_iSIoycXn2FhgZzR53rYuyfxNoSE1F6RfhOsaagrAs",
-  start_date,
-  end_date,
-  identifier,
-  latest = F
-)
+release_dates(key = key, start_date, end_date, pubid, latest = F)
 }
 \arguments{
 \item{key}{a string contains an api key for USDA EMSI}
 
-\item{start_date}{a string represents begining of the search period in forms of yyyy-mm-dd}
+\item{start_date}{a string represents beginning of the search period in forms of yyyy-mm-dd}
 
 \item{end_date}{a string represents ending of the search period in form of yyyy-mm-dd}
 
-\item{identifier}{a string represents the abbreviation of usda announcements, such as wasde}
+\item{pubid}{a string represents the publication id of usda announcements, such as 8336h188j for crop progress}
 
 \item{latest}{a boolean indicator. If latest is set to be TRUE, then only the latest release will be obtained. Default is latest=FALSE}
 }
 \value{
-A vector contains release dates
+A dataframe contains release dates and announcement name
 }
 \description{
-This function uses report identifiers to download release dates of certian USDA announcements.
+This function uses report pubids to download release dates of certian USDA announcements.
+}
+\examples{
+# Retreive WASDE release dates between 01/02/2009 and 05/22/2018. Replace key with your own api key from https://www.ers.usda.gov/developer/data-apis/
+
+WASDE_dates <- release_dates(start_date = "2009-01-02",end_date = "2018-05-22",pubid = "3t945q76s",key = key)
+
 }

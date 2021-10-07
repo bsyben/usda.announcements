@@ -1,18 +1,24 @@
-#' Download release dates of specifict USDA announcements with report identifiers
+#' Download release dates of specifict USDA announcements with report pubids
 #'
-#' This function uses report identifiers to download release dates of certian USDA announcements.
+#' This function uses report pubids to download release dates of certian USDA announcements.
 #'
 #' @param key a string contains an api key for USDA EMSI
-#' @param start_date a string represents begining of the search period in forms of yyyy-mm-dd
+#' @param start_date a string represents beginning of the search period in forms of yyyy-mm-dd
 #' @param end_date a string represents ending of the search period in form of yyyy-mm-dd
-#' @param identifier a string represents the abbreviation of usda announcements, such as wasde
+#' @param pubid a string represents the publication id of usda announcements, such as 8336h188j for crop progress
 #' @param latest a boolean indicator. If latest is set to be TRUE, then only the latest release will be obtained. Default is latest=FALSE
 #'
-#' @return A dataframe contains release dates and announcement identifier
+#' @return A dataframe contains release dates and announcement name
+#'
+#' @examples
+#' # Retreive WASDE release dates between 01/02/2009 and 05/22/2018. Replace key with your own api key from https://www.ers.usda.gov/developer/data-apis/
+#'
+#' WASDE_dates <- release_dates(start_date = "2009-01-02",end_date = "2018-05-22",pubid = "3t945q76s",key = key)
+#'
 #' @export
 
-release_dates <- function(key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQ3NzJ9.J_iSIoycXn2FhgZzR53rYuyfxNoSE1F6RfhOsaagrAs",
-                          start_date,end_date,identifier,latest=F){
+release_dates <- function(key=key,
+                          start_date,end_date,pubid,latest=F){
   if(!is.character(key)){
     stop("The api key must be a string")
   }
@@ -21,16 +27,17 @@ release_dates <- function(key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQ3
 
   latest <- ifelse(latest,"true","false")
 
-  if(!is.character(identifier)){
-    stop("identifier must be a string, such as wasde")
+  if(!is.character(pubid)){
+    stop("pubid must be a string, such as wasde")
   }
-  url <- paste0("https://usda.library.cornell.edu/api/v1/release/findByIdentifier/",identifier,
+  url <- paste0("https://usda.library.cornell.edu/api/v1/release/findByPubId/",pubid,
                 "?latest=",latest,"&start_date=",start_date,"&end_date=",end_date)
 
   Results <- httr::RETRY("GET",url=url,httr::add_headers(accept="application/json",Authorization=paste("Bearer",key,sep=" ")),times=5)
   Results <- httr::content(Results,"parsed")
   announcement_dates <- unlist(purrr::map(Results,purrr::pluck,"release_datetime"))
-  announcement_dates <- cbind.data.frame(announcement_dates,identifier)
+  announcement_name <- unlist(purrr::map(Results,purrr::pluck,"title"))
+  announcement_dates <- cbind.data.frame(announcement_dates,announcement_name)
 
   return(announcement_dates)
 }
