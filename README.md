@@ -4,7 +4,9 @@
 
 This package is only published on github for now. Therefore, to install it, you can use the following code:
 
-`<devtools::install_github("bsyben/usda.announcements)>`
+```r
+devtools::install_github("bsyben/usda.announcements)
+```
 
 Obviously, _devtools_ must be installed at first. Also, other packages which can install R packages from git may also work. However, I have not tested them yet.
 
@@ -18,7 +20,9 @@ To use this package, you need to decide the range of dates you want to use and t
 
 Suppose you want to find announcement release dates for _Crop Production_ between 01/02/2009 and 05/22/2018, then using the following function:
 
-`<Crop_Progress_Date <- release_dates(start_date = "2009-01-02",end_date = "2018-05-22",pubid = "tm70mv177",key = key)>`
+```r
+Crop_Progress_Date <- release_dates(start_date = "2009-01-02",end_date = "2018-05-22",pubid = "tm70mv177",key = key)
+```
 
 where _key_ is your own api key. Then, the output would be as following:
 
