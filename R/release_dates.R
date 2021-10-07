@@ -28,7 +28,7 @@ release_dates <- function(key=key,
   latest <- ifelse(latest,"true","false")
 
   if(!is.character(pubid)){
-    stop("pubid must be a string, such as wasde")
+    stop("pubid must be a string, such as 3t945q76s")
   }
   url <- paste0("https://usda.library.cornell.edu/api/v1/release/findByPubId/",pubid,
                 "?latest=",latest,"&start_date=",start_date,"&end_date=",end_date)
