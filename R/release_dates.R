@@ -24,8 +24,6 @@ release_dates <- function(key=key,
   start_date <- as.Date(start_date)
   end_date <- as.Date(end_date)
 
-  latest <- ifelse(latest,"true","false")
-
   if(!is.character(pubid)){
     stop("pubid must be a string, such as 3t945q76s")
   }
