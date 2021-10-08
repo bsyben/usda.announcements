@@ -6,7 +6,6 @@
 #' @param start_date a string represents beginning of the search period in forms of yyyy-mm-dd
 #' @param end_date a string represents ending of the search period in form of yyyy-mm-dd
 #' @param pubid a string represents the publication id of usda announcements, such as 8336h188j for crop progress
-#' @param latest a boolean indicator. If latest is set to be TRUE, then only the latest release will be obtained. Default is latest=FALSE
 #'
 #' @return A dataframe contains release dates and announcement name
 #'

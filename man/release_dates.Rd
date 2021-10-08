@@ -4,7 +4,7 @@
 \alias{release_dates}
 \title{Download release dates of specifict USDA announcements with report pubids}
 \usage{
-release_dates(key = key, start_date, end_date, pubid, latest = F)
+release_dates(key = key, start_date, end_date, pubid)
 }
 \arguments{
 \item{key}{a string contains an api key for USDA EMSI}
@@ -14,8 +14,6 @@ release_dates(key = key, start_date, end_date, pubid, latest = F)
 \item{end_date}{a string represents ending of the search period in form of yyyy-mm-dd}
 
 \item{pubid}{a string represents the publication id of usda announcements, such as 8336h188j for crop progress}
-
-\item{latest}{a boolean indicator. If latest is set to be TRUE, then only the latest release will be obtained. Default is latest=FALSE}
 }
 \value{
 A dataframe contains release dates and announcement name
