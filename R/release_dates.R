@@ -18,7 +18,7 @@
 #' @export
 
 release_dates <- function(key=key,
-                          start_date,end_date,pubid,latest=F){
+                          start_date,end_date,pubid){
   if(!is.character(key)){
     stop("The api key must be a string")
   }
@@ -31,7 +31,7 @@ release_dates <- function(key=key,
     stop("pubid must be a string, such as 3t945q76s")
   }
   url <- paste0("https://usda.library.cornell.edu/api/v1/release/findByPubId/",pubid,
-                "?latest=",latest,"&start_date=",start_date,"&end_date=",end_date)
+                "?latest=false","&start_date=",start_date,"&end_date=",end_date)
 
   Results <- httr::RETRY("GET",url=url,httr::add_headers(accept="application/json",Authorization=paste("Bearer",key,sep=" ")),times=5)
   Results <- httr::content(Results,"parsed")
