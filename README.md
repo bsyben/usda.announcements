@@ -5,7 +5,7 @@
 This package is only published on github for now. Therefore, to install it, you can use the following code:
 
 ```r
-devtools::install_github("bsyben/usda.announcements)
+devtools::install_github("bsyben/usda.announcements")
 ```
 
 Obviously, _devtools_ must be installed at first. Also, other packages which can install R packages from git may also work. However, I have not tested them yet.
