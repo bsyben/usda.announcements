@@ -16,4 +16,5 @@ RoxygenNote: 7.1.1
 Dependes:
   R (>= 4.0.2),
   purrr,
-  httr
+  httr,
+  jsonlite
