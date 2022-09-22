@@ -32,8 +32,9 @@ release_dates <- function(key=key,
 
   Results <- httr::RETRY("GET",url=url,httr::add_headers(accept="application/json",Authorization=paste("Bearer",key,sep=" ")),times=5)
   Results <- httr::content(Results,"parsed")
-  announcement_dates <- unlist(purrr::map(Results,purrr::pluck,"release_datetime"))
-  announcement_name <- unlist(purrr::map(Results,purrr::pluck,"title"))
+
+  announcement_dates <- unique(unlist(purrr::map(Results,purrr::pluck,"release_datetime")))
+  announcement_name <- unique(unlist(purrr::map(Results,purrr::pluck,"title")))
   announcement_dates <- cbind.data.frame(announcement_dates,announcement_name)
 
   return(announcement_dates)
